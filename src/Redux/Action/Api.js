@@ -1,7 +1,5 @@
 import axios from "axios";
-import { ALL } from ".";
-const Api = "https://api.theinnerhour.com/v1/customers/resources/articles/list?page=1&limit=10"
-
+import { ALL, single } from ".";
 
 export const getProduct=async(url,dispatch)=>{
     dispatch(ALL("Loading"));
@@ -11,6 +9,20 @@ export const getProduct=async(url,dispatch)=>{
         dispatch(ALL("Api_Data",products))
     }
     catch(error){
-        dispatch(ALL("Api_error"));
+        dispatch(ALL("Api_Error"));
+    }
+}
+
+export const getSingleProduct=async(url,dispatch)=>{
+    dispatch(single("singleDisplayT"))
+    dispatch(single("singleLoading"));
+    try{
+        const res=await axios.get(url);
+        var products= await res.data.blog
+        console.log(products)
+        dispatch(single("single_Product",products))
+    }
+    catch(error){
+        dispatch(single("single_Error"));
     }
 }

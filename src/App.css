@@ -5,9 +5,8 @@ header{
 
 .parent{
   width: 100%;
-  height:80vh;
   background-color: #F8f8f8;
-  padding: 5rem 10rem;
+  padding: 5rem 12rem;
 }
 nav{
   display: flex;
@@ -35,4 +34,95 @@ nav label{
   padding: 1rem 0;
   margin-left: -4.5rem;
   font-size: 3rem;
+}
+.container{
+  margin: 5rem 0;
+ display: grid;
+ grid-template-columns: repeat(auto-fit ,minmax(30rem,1fr));;
+ gap: 5rem; 
+}
+.childContainer{
+  border:  solid .2rem #eae9e9;
+  border-radius: 1.2rem;
+  cursor: pointer;
+}
+.childContainer p ,h3{
+  padding:1rem 2rem;
+}
+.childContainer img {
+  border-top-left-radius: 1.2rem;
+ border-top-right-radius: 1.2rem;
+  width: 100%;
+  height: 18rem;
+}
+.childContainer h3{
+  font-size: 2rem;
+  font-weight: 500;
+}
+.childContainer p{
+  font-size: 1.8rem;
+  color: #666;
+}
+.childContainer:hover h3{
+  color:orange;
+}
+
+
+
+/* /testing */
+.user-login
+{
+    z-index: 1000;
+    position: fixed;
+    top: 0;left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    background-color: rgba(74, 74, 74, 0.9);
+align-items: center;
+justify-content: center;
+}
+
+.user-login .single{
+ position: relative;
+  width: 40%;
+ height: 80vh;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+  border-radius: 1rem;
+  gap:1rem;
+  background-color: #fff;
+}
+
+
+.single img{
+  width: 100%;
+  height: 40%;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+
+}
+.singleBody{
+  height: 50%;
+  padding: 1rem 2rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  /* text-align: center; */
+  line-height: 2rem;
+}
+
+.single h3{
+font-size: 2rem;
+}
+.singleBody p{
+  font-size: 1.4rem;
+}
+.CloseIcon{
+  position: absolute;
+  right: -1rem;
+  top: -2rem;
+  font-size: 2rem;
+  cursor: pointer;
 }

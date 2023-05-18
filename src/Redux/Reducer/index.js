@@ -2,6 +2,7 @@ const initialState={
     isLoading:false,
     isError:false,
     products:[],
+    singleDisplay:false,
     singleLoading:false,
     singleProduct:{}
 }
@@ -24,6 +25,28 @@ const ProductReducer=(state=initialState,action)=>{
                 ...state,
                 isError:true
             }
+            case "singleDisplayT":
+                return {
+                    ...state,
+                    singleDisplay:true
+                }
+                case "singleDisplayF":
+                return {
+                    ...state,
+                    singleDisplay:false
+                }
+                case "singleLoading":
+                    return {
+                        ...state,
+                        singleLoading:true
+                    }
+                case "single_Product":
+                    return{
+                        ...state,
+                        singleLoading:false,
+                        singleProduct:action.payload
+                    }
+
              default :return state
     }
 }
