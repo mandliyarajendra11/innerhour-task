@@ -1,10 +1,12 @@
 const initialState={
     isLoading:false,
     isError:false,
+    AllProducts:[],
     products:[],
     singleDisplay:false,
     singleLoading:false,
-    singleProduct:{}
+    singleProduct:{},
+    search:""
 }
 
 const ProductReducer=(state=initialState,action)=>{
@@ -18,6 +20,7 @@ const ProductReducer=(state=initialState,action)=>{
             return {
                 ...state,
                 isLoading:false,
+                AllProducts:action.payload,
                 products:action.payload
             }
         case "Api_Error":
@@ -46,7 +49,33 @@ const ProductReducer=(state=initialState,action)=>{
                         singleLoading:false,
                         singleProduct:action.payload
                     }
-
+                    case "single_Error":
+                        return {
+                            ...state,
+                            singleError:true
+                        }
+                case "search":
+                   let ans= state.AllProducts.filter((ele)=>{
+                    let val=action.payload.toLowerCase()
+                    val=val.trim();
+                    val= ele.title.toLowerCase().search(val);
+                   if(val===-1)
+                    return false;
+                    return true;})
+                  
+                    if(ans.length===0)
+                   return{
+                    ...state,
+                    search:action.payload,
+                    isError:true
+                   }
+                   
+                   return {
+                        ...state,
+                        search:action.payload,
+                        products:ans,
+                        isError:false
+                    }   
              default :return state
     }
 }

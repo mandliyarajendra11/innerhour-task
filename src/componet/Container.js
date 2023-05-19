@@ -15,17 +15,18 @@ const SingleApi="https://api.theinnerhour.com/v1/blogdetail/"
         <>
     <div className='container'>
         {
+            Data.isError?<h1>No Data</h1>:
             Data.isLoading?<h1>data loading please wait</h1>
             : Data.products.map((e)=>{
                 // console.log(e)
-            return <div className='childContainer' key={e.id} onClick={()=>getSingleProduct(SingleApi+e.slug,dispatch)}>
+                return <div className='childContainer' key={e.id} onClick={()=>getSingleProduct(SingleApi+e.slug,dispatch)}>
                 <img src={e.thumb} alt={e.title}/>
                 <h3>{e.title}</h3>
                 <p>{e.short_description}</p>
             </div>
             
-              }  )
-            }
+        }  )
+    }
        
     </div>
        {Data.singleDisplay?<SingleProduct/>:null}
