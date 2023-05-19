@@ -2,16 +2,20 @@ header{
   width: 100%;
   height: 10vh;
 }
-
+header img{
+  height: 80%;
+  padding-left: 10%;
+}
 .parent{
   width: 100%;
   background-color: #F8f8f8;
-  padding: 5rem 12rem;
+  padding: 5rem 8%;
 }
+
 nav{
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 nav h3{
   font-size: 3rem;
@@ -19,32 +23,42 @@ nav h3{
 nav div{
   width: 30%;
 }
+
 nav input{
   width: 100%;
-  height: 5rem;
+  height: 5.5rem;
   border-radius: 1rem; 
-  border:  solid .1rem #eae9e9;
-}
-nav input::placeholder{
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   padding-left: 1.5rem;
 }
+/* clears the ‘X’ from Internet Explorer */
+input[type=search]::-ms-clear { display: none; width : 0; height: 0; }
+input[type=search]::-ms-reveal { display: none; width : 0; height: 0; }
+/* clears the ‘X’ from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
+
 nav label{
   position: absolute;
   align-items: center;
-  padding: 1rem 0;
+  padding: 2rem 0;
   margin-left: -4.5rem;
-  font-size: 3rem;
+  font-size: 2rem;
 }
 .container{
   margin: 5rem 0;
  display: grid;
- grid-template-columns: repeat(auto-fit ,minmax(30rem,1fr));;
- gap: 5rem; 
+ grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));
+ gap: 5rem;
 }
 .childContainer{
-  border:  solid .2rem #eae9e9;
   border-radius: 1.2rem;
   cursor: pointer;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 .childContainer p ,h3{
   padding:1rem 2rem;
@@ -63,11 +77,13 @@ nav label{
   font-size: 1.8rem;
   color: #666;
 }
+.childContainer:hover{
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
 .childContainer:hover h3{
   color:orange;
+
 }
-
-
 
 /* /testing */
 .user-login
@@ -85,8 +101,8 @@ justify-content: center;
 
 .user-login .single{
  position: relative;
-  width: 40%;
- height: 80vh;
+  width: 50%;
+ height: 87vh;
  display: flex;
  flex-direction: column;
  align-items: center;
@@ -94,12 +110,13 @@ justify-content: center;
   border-radius: 1rem;
   gap:1rem;
   background-color: #fff;
+  margin-top: 3%;
 }
 
 
 .single img{
   width: 100%;
-  height: 40%;
+  height: 50%;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
 
@@ -109,20 +126,39 @@ justify-content: center;
   padding: 1rem 2rem;
   overflow-y: scroll;
   overflow-x: hidden;
-  /* text-align: center; */
   line-height: 2rem;
 }
 
 .single h3{
-font-size: 2rem;
+font-size: 2.5rem;
 }
 .singleBody p{
-  font-size: 1.4rem;
+  font-size: 2rem;
 }
 .CloseIcon{
   position: absolute;
-  right: -1rem;
-  top: -2rem;
-  font-size: 2rem;
+  right: -2.5rem;
+  top: -2.6rem;
+  font-size: 3rem;
   cursor: pointer;
+  color:white;
+background-color:rgba(0, 0, 0, 0.284);
+  border-radius: 3rem;
 }
+  @media(max-width:768px){
+    html{
+      font-size: 52%;
+    }
+    nav div{
+      width: 50%;
+    }
+    .user-login .single{
+      width: 65%;
+    }
+  }
+  @media(max-width:468px){
+    
+    nav h3{
+      font-size: 2.5rem;
+    }
+  }
