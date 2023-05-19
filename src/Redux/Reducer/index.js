@@ -47,6 +47,7 @@ const ProductReducer=(state=initialState,action)=>{
                     return{
                         ...state,
                         singleLoading:false,
+                       
                         singleProduct:action.payload
                     }
                     case "single_Error":
